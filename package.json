@@ -1,14 +1,22 @@
 {
   "name": "drag-drop-project",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "lite-server"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leeyanhawrt/drag-drop-ts.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Leeyanhawrt/drag-drop-ts/issues"
+  },
+  "homepage": "https://github.com/Leeyanhawrt/drag-drop-ts#readme",
+  "description": "",
   "devDependencies": {
     "lite-server": "^2.6.1"
   }
