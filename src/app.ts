@@ -53,6 +53,35 @@ function autobind(_: any, _2: string, descriptor: PropertyDescriptor) {
   return adjDescriptor;
 }
 
+// Project List Class
+class ProjectList {
+  templateEl: HTMLTemplateElement;
+  hostEl: HTMLDivElement;
+  element: HTMLElement;
+  constructor(private type: "active" | "finished") {
+    this.templateEl = document.getElementById(
+      "project-list"
+    )! as HTMLTemplateElement;
+    this.hostEl = document.getElementById("app")! as HTMLDivElement;
+    const importedContent = document.importNode(this.templateEl.content, true);
+    this.element = importedContent.firstElementChild as HTMLElement;
+    this.element.id = `${this.type}-projects`;
+    this.attach();
+    this.renderContent();
+  }
+
+  private renderContent() {
+    const listId = `${this.type}-projects-list`;
+    this.element.querySelector("ul")!.id = listId;
+    this.element.querySelector("h2")!.textContent =
+      this.type.toUpperCase() + "PROJECTS";
+  }
+
+  private attach() {
+    this.hostEl.insertAdjacentElement("beforeend", this.element);
+  }
+}
+
 // Project Input Class
 class ProjectInput {
   templateEl: HTMLTemplateElement;
@@ -135,8 +164,8 @@ class ProjectInput {
     const userInput = this.gatherUserInput();
     if (Array.isArray(userInput)) {
       const [title, description, people] = userInput;
+      this.clearInputs();
     }
-    this.clearInputs();
   }
 
   private configure() {
@@ -149,3 +178,5 @@ class ProjectInput {
 }
 
 const prjInput = new ProjectInput();
+const activePrjList = new ProjectList("active");
+const finishedPrjList = new ProjectList("finished");
