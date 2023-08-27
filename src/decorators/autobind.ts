@@ -9,5 +9,4 @@ export function autobind(_: any, _2: string, descriptor: PropertyDescriptor) {
     },
   };
   return adjDescriptor;
-  // Does this work?
 }
