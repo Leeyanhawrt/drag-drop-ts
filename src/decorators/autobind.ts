@@ -10,3 +10,5 @@ export function autobind(_: any, _2: string, descriptor: PropertyDescriptor) {
   };
   return adjDescriptor;
 }
+
+// Init start working on advanced css course
